@@ -16,6 +16,7 @@ import com.example.recipecake.adapter.MyViewPagerAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -89,6 +90,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
             }
         });
+        mViewPager2.setUserInputEnabled(false);
 
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -143,6 +145,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Intent i = new Intent(MainActivity.this, ChangePasswordActivity.class);
                 startActivity(i);
                 break;
+            case R.id.navigation_sign_out:
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(this, LoginActivity.class);
+                startActivity(intent);
+                finish();
         }
 
         mDrawerLayout.closeDrawer(GravityCompat.START);

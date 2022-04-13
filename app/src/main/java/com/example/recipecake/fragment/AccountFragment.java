@@ -33,10 +33,7 @@ public class AccountFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mView = inflater.inflate(R.layout.fragment_account, container, false);
 
-        edtData = mView.findViewById(R.id.edt_data);
-        btnPush = mView.findViewById(R.id.btn_push);
-        btnGet = mView.findViewById(R.id.btn_get);
-        txtDataGet = mView.findViewById(R.id.txtDataGet);
+        getViews(mView);
 
         btnPush.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,6 +50,13 @@ public class AccountFragment extends Fragment {
         });
 
         return mView;
+    }
+
+    private void getViews(View mView) {
+        edtData = mView.findViewById(R.id.edt_data);
+        btnPush = mView.findViewById(R.id.btn_push);
+        btnGet = mView.findViewById(R.id.btn_get);
+        txtDataGet = mView.findViewById(R.id.txtDataGet);
     }
 
     private void onPushData() {
